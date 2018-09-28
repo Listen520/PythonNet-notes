@@ -1,0 +1,37 @@
+前情回顾
+1.epoll模型：效率高，触发方式多
+2.本地套接字　AF_UNIX　本地两个进程间的消息通信
+3.多任务编程
+　　　　* 并行　和　并发
+    * 进程　线程
+4.多进程编程
+　　时间片　PCB PID 父子进程　优先级　进程特征
+　　进程状态：　就绪态　运行态　等待态
+5. ps -aux   ps _ajx   pstree  top  nice
+6. os.fork()
+7. os.getpid()  os.getppid()
+   os._exit()  sys.exit()
+8.孤儿进程和僵尸进程
+
+
+day5笔记
+
+如何避免僵尸进程产生
+　　* 处理子进程推出状态
+　　　　pid,status = os.wait()
+    功能：在父进程中阻塞等待处理子进程退出
+    返回值：pid　退出的子进程的PID号
+    　　　　　　　status 获取子进程的退出状态
+
+    pid,status = os.wait(pid,option)
+    功能：在父进程中阻塞等待处理子进程退出
+    参数：pid  -1 表示等待任意子进程退出
+    　　　　　　　　　　>0 表示等待对应PID号的子进程退出
+    
+
+
+
+    返回值：pid　退出的子进程的PID号
+    　　　　　　　status 获取子进程的退出状态
+
+　　* 让父进程先推出
